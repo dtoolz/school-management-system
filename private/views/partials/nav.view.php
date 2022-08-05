@@ -1,4 +1,10 @@
 <style>
+    nav ul li a {
+        width: 100px;
+        text-align: center;
+        border-left: solid thin #eee;
+        border-right: solid thin #fff;
+    }
     nav ul li a:hover {
         background-color: grey;
         color: white !important;
@@ -26,18 +32,20 @@
         <li class="nav-item">
           <a class="nav-link" href="<?=ROOT?>/test">test</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            More
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="<?=ROOT?>/profile">Profile</a></li>
-            <li><a class="dropdown-item" href="<?=ROOT?>">Dashboard</a></li>
-            <div class="dropdown-divider"></div>
-            <li><a class="dropdown-item" href="<?=ROOT?>/logout">Logout</a></li>
-          </ul>
-        </li>
       </ul>
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              User
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="<?=ROOT?>/profile">Profile</a></li>
+                <li><a class="dropdown-item" href="<?=ROOT?>">Dashboard</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="<?=ROOT?>/logout">Logout</a></li>
+              </ul>
+            </li>
+          </ul>
     </div>
   </div>
 </nav>
