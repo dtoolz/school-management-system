@@ -43,6 +43,12 @@ class User extends Model
          {
               $this->errors['password'] = "the passwords do not match";
          }
+         
+         //check for passwords length
+         if(strlen($DATA['password']) <= 7)
+         {
+              $this->errors['password'] = "password should be more than seven characters";
+         }
 
          if(count($this->errors) == 0)
          {
