@@ -35,7 +35,7 @@ class User extends Model
          }
         
          //only valid email is allowed
-         if(empty($DATA['email']) || filter_var($DATA['email'],FILTER_VALIDATE_EMAIL))
+         if(empty($DATA['email']) || !filter_var($DATA['email'],FILTER_VALIDATE_EMAIL))
          {
               $this->errors['email'] = "Email is not valid";
          }
