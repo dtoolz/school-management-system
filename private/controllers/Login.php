@@ -4,6 +4,9 @@ class Login extends Controller
 {
    function index() 
    {
-        echo $this->view('login');
+        $errors = array();
+        echo $this->view('login',[
+         'errors'=>$errors
+      ]);
    }
 }
