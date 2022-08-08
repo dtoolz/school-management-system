@@ -40,6 +40,12 @@ class User extends Model
               $this->errors['email'] = "Email is not valid";
          }
          
+         //check if email exists
+         if($this->where('email', $DATA['email']))
+         {
+              $this->errors['email'] = "Email has already been used";
+         }
+         
          //check for gender
          $genders = ['female', 'male'];
          if(empty($DATA['gender']) || !in_array($DATA['gender'], $genders))

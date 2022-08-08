@@ -36,7 +36,8 @@
         <ul class="navbar-nav ms-auto">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              User
+              <i class="fa fa-user"></i>
+              <?= Auth::getFirstname() ?>
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="<?=ROOT?>/profile">Profile</a></li>

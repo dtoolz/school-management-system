@@ -23,4 +23,24 @@ class Auth
         }
             return false;
     }
+
+    public static function user()
+    {
+        if(isset($_SESSION['USER']))
+        {
+           return $_SESSION['USER']->firstname;
+        }
+        return false;
+    }
+
+    public static function __callstatic($method, $params)
+    {
+        $prop = strtolower(str_replace("get", "", $method));
+        if(isset($_SESSION['USER']->$prop))
+        {
+           return $_SESSION['USER']->$prop;
+        }
+        return 'unknown';
+    }
+
 }
