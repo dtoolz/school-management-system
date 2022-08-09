@@ -24,13 +24,19 @@
           <a class="nav-link active" aria-current="page" href="<?=ROOT?>">Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=ROOT?>/classes">classes</a>
+          <a class="nav-link" href="<?=ROOT?>/classes">schools</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=ROOT?>/users">users</a>
+          <a class="nav-link" href="<?=ROOT?>/staff">staff</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="<?=ROOT?>/test">test</a>
+          <a class="nav-link" href="<?=ROOT?>/students">students</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?=ROOT?>/students">classes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<?=ROOT?>/test">tests</a>
         </li>
       </ul>
         <ul class="navbar-nav ms-auto">
