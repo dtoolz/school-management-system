@@ -22,8 +22,12 @@
                             <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
                             <td><?=get_date($row->date)?></td>
                             <td>
-                                <button class="btn btn-secondary btn-sm"><i class="fa fa-edit"></i> Edit</button>
-                                <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                <a href="<?=ROOT?>/schools/edit/<?=$row->id?>">
+                                  <button class="btn btn-secondary btn-sm"><i class="fa fa-edit"></i> Edit</button>
+                                </a>
+                                <a href="<?=ROOT?>/schools/delete/<?=$row->id?>">
+                                  <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                                </a>
                             </td>
                          </tr>
                   <?php endforeach; ?>
