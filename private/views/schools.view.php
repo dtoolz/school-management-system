@@ -19,8 +19,8 @@
                   <?php foreach ($rows as $row): ?>
                          <tr>
                             <td><?=$row->school?></td>
-                            <td><?=$row->user_id?></td>
-                            <td><?=$row->date?></td>
+                            <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
+                            <td><?=get_date($row->date)?></td>
                             <td>
                                 <button class="btn btn-secondary btn-sm"><i class="fa fa-edit"></i> Edit</button>
                                 <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>

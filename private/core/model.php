@@ -13,17 +13,45 @@ class Model extends Database
 
     public function where($column,$value) 
     {
-       $column = addslashes($column);
-       $query = "select * from $this->table where $column = :value";
-       return $this->query($query,[
-         'value' => $value
-       ]);
+            $column = addslashes($column);
+            $query = "select * from $this->table where $column = :value";
+            $data = $this->query($query,[
+                'value' => $value
+            ]);
+
+            //run after select
+            if(is_array($data))
+            {
+                if(property_exists($this, 'afterSelect'))
+                {
+                    foreach($this->afterSelect as $func)
+                    {
+                        $data = $this->$func($data);
+                    }
+                }
+            }
+            
+            return $data;
     }
     
     public function findAll() 
     {
        $query = "select * from $this->table ";
-       return $this->query($query);
+       $data =  $this->query($query);
+
+       //run after select
+         if(is_array($data))
+         {
+            if(property_exists($this, 'afterSelect'))
+            {
+                foreach($this->afterSelect as $func)
+                {
+                    $data = $this->$func($data);
+                }
+            }
+         }
+       
+       return $data;
     }
 
     public function insert($data) 

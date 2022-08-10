@@ -11,6 +11,10 @@ class School extends Model
         'make_user_id',
         'make_school_id'
      ];
+    
+     protected $afterSelect = [
+        'get_user'
+     ];
 
     public function validate($DATA)
     {
@@ -44,5 +48,15 @@ class School extends Model
         return $data;
     }
 
+    public function get_user($data)
+    {
+       $user = new User;
+       foreach ($data as $key => $row) 
+       {
+           $result = $user->where('user_id',$row->user_id);
+           $data[$key]->user = is_array($result) ? $result[0] : false;
+       }
+       return $data;
+    }
 
 }
