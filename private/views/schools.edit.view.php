@@ -1,14 +1,14 @@
 <?php $this->view('partials/header') ?>
 <?php $this->view('partials/nav') ?>
       <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-       <?php $this->view('partials/crumbs') ?>
+      <?php $this->view('partials/crumbs',['crumbs'=>$crumbs]) ?>
           <?php if($row): ?>
           <div class="card-group justify-content-center">
               <form method="post">
                 <h3>Edit School</h3>
                     <?php if(count($errors)>0): ?>
                            <div class="alert alert-warning alert-dismissible fade show p-1" role="alert">
-                           <strong>Erorrs</strong> 
+                           <strong>Errors</strong> 
                              <?php foreach($errors as $error): ?>
                                <br> <?=$error?>
                              <?php endforeach; ?>

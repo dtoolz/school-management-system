@@ -10,7 +10,12 @@ class Schools extends Controller
       }
        $school = new School();
        $data = $school->findAll();
-       $this->view('schools',['rows'=>$data]);
+       $crumbs[] = ['Dashboard',''];
+       $crumbs[] = ['Schools','schools'];
+       $this->view('schools',[
+        'rows'=>$data,
+        'crumbs'=>$crumbs
+     ]);
     }
    
     public function add()
@@ -33,8 +38,12 @@ class Schools extends Controller
                 $errors = $school->errors;
              }
        }
+       $crumbs[] = ['Dashboard',''];
+       $crumbs[] = ['Schools','schools'];
+       $crumbs[] = ['Add','schools/add'];
        $this->view('schools.add',[
-        'errors'=>$errors
+        'errors'=>$errors,
+        'crumbs'=>$crumbs
       ]);
     }
 
@@ -58,36 +67,38 @@ class Schools extends Controller
              }
        }
        $row = $school->where('id',$id);
-       
+
+       $crumbs[] = ['Dashboard',''];
+       $crumbs[] = ['Schools','schools'];
+       $crumbs[] = ['Edit','schools/edit'];
        $this->view('schools.edit',[
         'row'=>$row,
-        'errors'=>$errors
+        'errors'=>$errors,
+        'crumbs'=>$crumbs
       ]);
     }
     
-    // public function delete($id = null)
-    // {
-    //   if(!Auth::logged_in())
-    //   {
-    //       $this->redirect('login');
-    //   }
-    //    $errors = array();
-    //    if(count($_POST)>0)
-    //    {
-    //      $school = new School();
-    //      if($school->validate($_POST))
-    //          {
-    //                $school->update($id,$_POST);
-    //                $this->redirect('schools');
-    //          } else 
-    //          {
-    //             $errors = $school->errors;
-    //          }
-    //    }
-    //    $this->view('schools.add',[
-    //     'errors'=>$errors
-    //   ]);
-    // }
-
+    public function delete($id = null)
+    {
+      if(!Auth::logged_in())
+      {
+          $this->redirect('login');
+      }
+       $school = new School();
+       if(count($_POST)>0)
+       {
+           $school->delete($id);
+           $this->redirect('schools');
+       }
+       $row = $school->where('id',$id);
+       
+       $crumbs[] = ['Dashboard',''];
+       $crumbs[] = ['Schools','schools'];
+       $crumbs[] = ['Delete','schools/delete'];
+       $this->view('schools.delete',[
+        'row'=>$row,
+        'crumbs'=>$crumbs
+      ]);
+    }
 
 } 

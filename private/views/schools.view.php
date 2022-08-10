@@ -1,7 +1,7 @@
 <?php $this->view('partials/header') ?>
 <?php $this->view('partials/nav') ?>
       <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-       <?php $this->view('partials/crumbs') ?>
+       <?php $this->view('partials/crumbs',['crumbs'=>$crumbs]) ?>
           <div class="card-group justify-content-center">
               <table class="table table-striped table-hover">
                  <tr>
