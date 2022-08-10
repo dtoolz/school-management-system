@@ -9,4 +9,9 @@
     <link rel="stylesheet" type="text/css" href="<?=ROOT?>/assets/all.min.css">
 </head>
 <body>
+    <style>
+        .fa{
+            margin-right: 4px;
+        }
+    </style>
     <div style="min-width: 350px;">
