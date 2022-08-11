@@ -28,6 +28,10 @@
                                 <a href="<?=ROOT?>/schools/delete/<?=$row->id?>">
                                   <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
                                 </a>
+                                
+                                <a href="<?=ROOT?>/switch_school/<?=$row->id?>">
+                                  <button class="btn btn-success btn-sm"><i class="fa fa-chevron-right"></i> Switch Sch</button>
+                                </a>
                             </td>
                          </tr>
                   <?php endforeach; ?>
