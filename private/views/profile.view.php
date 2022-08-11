@@ -1,7 +1,7 @@
 <?php $this->view('partials/header') ?>
 <?php $this->view('partials/nav') ?>
        <div class="container-fluid p-4 shadow mx-auto" style="max-width: 1000px;">
-       <?php $this->view('partials/crumbs') ?>
+       <?php $this->view('partials/crumbs',['crumbs'=>$crumbs]) ?>
          <h1>Profile</h1>
          <div class="row">
             <div class="col-sm-4 col-md-3">
