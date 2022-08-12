@@ -4,7 +4,7 @@ class Profile extends Controller
 {
     function index($id = '') 
     {
-        $user = new user();
+        $user = new User();
         $row = $user->first('user_id', $id);
         $crumbs[] = ['Dashboard',''];
         $crumbs[] = ['Profile','profile'];
