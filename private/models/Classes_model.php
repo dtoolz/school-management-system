@@ -1,15 +1,17 @@
 <?php
 
-class School extends Model 
+class Classes_model extends Model 
 {
+    protected $table = "classes"; //due to php in-built class naming
     protected $allowedColumns = [
-        'school',
+        'class',
         'date'
     ];
 
     protected $beforeInsert = [
+        'make_school_id',
         'make_user_id',
-        'make_school_id'
+        'make_class_id'
      ];
     
      protected $afterSelect = [
@@ -20,10 +22,10 @@ class School extends Model
     {
          $this->errors = array();
 
-         //letters allowed in school
-         if(empty($DATA['school']) || !preg_match('/^[a-z A-Z]+$/', $DATA['school']))
+         //letters & numbers allowed in class
+         if(empty($DATA['class']) || !preg_match('/^[a-z A-Z0-9]+$/', $DATA['class']))
          {
-              $this->errors['school'] = "only letters allowed in school";
+              $this->errors['class'] = "only letters allowed in class";
          }
 
          if(count($this->errors) == 0)
@@ -33,6 +35,15 @@ class School extends Model
          return false;
     }
     
+    public function make_school_id($data)
+    {
+        if(isset($_SESSION['USER']->school_id))
+        {
+            $data['school_id'] = $_SESSION['USER']->school_id;
+        }
+        return $data;
+    }
+
     public function make_user_id($data)
     {
         if(isset($_SESSION['USER']->user_id))
@@ -42,9 +53,9 @@ class School extends Model
         return $data;
     }
 
-    public function make_school_id($data)
+    public function make_class_id($data)
     {
-        $data['school_id'] = random_string(60);
+        $data['class_id'] = random_string(60);
         return $data;
     }
 
