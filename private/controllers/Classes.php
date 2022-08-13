@@ -10,6 +10,7 @@ class Classes extends Controller
       }
        $classes = new Classes_model();
        $data = $classes->findAll();
+      // $data = $classes->query("select * from classes order by id desc");
        $crumbs[] = ['Dashboard',''];
        $crumbs[] = ['Classes','classes'];
        $this->view('classes',[

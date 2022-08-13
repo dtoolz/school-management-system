@@ -25,7 +25,7 @@ class Classes_model extends Model
          //letters & numbers allowed in class
          if(empty($DATA['class']) || !preg_match('/^[a-z A-Z0-9]+$/', $DATA['class']))
          {
-              $this->errors['class'] = "only letters allowed in class";
+              $this->errors['class'] = "only letters & numbers allowed in class";
          }
 
          if(count($this->errors) == 0)

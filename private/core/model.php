@@ -60,9 +60,9 @@ class Model extends Database
             return $data;
     }
     
-    public function findAll() 
+    public function findAll($orderby = 'desc') 
     {
-       $query = "select * from $this->table ";
+       $query = "select * from $this->table order by id $orderby";
        $data =  $this->query($query);
 
        //run after select
