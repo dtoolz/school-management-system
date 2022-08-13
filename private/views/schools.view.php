@@ -5,6 +5,7 @@
           <div class="card-group justify-content-center">
               <table class="table table-striped table-hover">
                  <tr>
+                    <th></th>
                     <th>School</th>
                     <th>Created by</th>
                     <th>Date</th>
@@ -18,6 +19,7 @@
               <?php if ($rows): ?>
                   <?php foreach ($rows as $row): ?>
                          <tr>
+                            <td><button class="btn btn-sm btn-primary"><i class="fa fa-chevron-right"></i></button></td>
                             <td><?=$row->school?></td>
                             <td><?=$row->user->firstname?> <?=$row->user->lastname?></td>
                             <td><?=get_date($row->date)?></td>
