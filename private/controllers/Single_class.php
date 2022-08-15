@@ -4,19 +4,22 @@ class Single_class extends Controller
 {
     function index($id = '') 
     {
-        $user = new User();
-        $row = $user->first('user_id', $id);
-        $crumbs[] = ['Dashboard',''];
-        $crumbs[] = ['Classes','classes'];
+        $classes = new Classes_model();
+        $row = $classes->first('class_id', $id);
 
+        $crumbs[] = ['Dashboard',''];
+        $crumbs[] = ['classes','classes'];
         if($row)
         {
            $crumbs[] = [$row->class,'class'];
         }
         
+        $page_tab = isset($_GET['tab']) ? $_GET['tab'] : 'lecturers';
+        
         $this->view('single-class', [
             'row' => $row,
-            'crumbs' => $crumbs
+            'crumbs' => $crumbs,
+            'page_tab' => $page_tab
         ]);
     }
 }
