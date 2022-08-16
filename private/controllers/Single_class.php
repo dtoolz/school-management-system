@@ -15,11 +15,19 @@ class Single_class extends Controller
         }
         
         $page_tab = isset($_GET['tab']) ? $_GET['tab'] : 'lecturers';
-        
+        $results = false;
+        if($page_tab == 'lecturer-add' && count($_POST) > 0)
+        {
+             $user = new User;
+             $name = "%".$_POST['name']."%";
+             $query = "select * from users where (firstname like :fname || lastname like :lname) && rank = 'lecturer' limit 10";
+             $results = $user->query($query,['fname'=>$name,'lname'=>$name]);
+        }
         $this->view('single-class', [
             'row' => $row,
             'crumbs' => $crumbs,
-            'page_tab' => $page_tab
+            'page_tab' => $page_tab,
+            'results' => $results
         ]);
     }
 }
