@@ -6,7 +6,7 @@
                 aria-describedby="basic-addon1">
         </div>
     </form>
-    <a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=lecturer-add">
+    <a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=lecturer-add&select=true">
         <button class="btn btn-sm btn-primary"><i class="fa fa-plus"></i> Add Lecturer</button>
     </a>
 </nav>

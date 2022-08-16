@@ -8,27 +8,20 @@
     <button class="btn btn-sm btn-primary float-end" name="search">Search</button>
     <div class="clearfix"></div>
 </form>
-
-<div class="container-fluid">
-    <?php if (isset($results) && $results): ?>
-        <table class="table table-striped table-hover">
-            <tr>
-                <th>Name</th>
-                <th>Action</th>
-            </tr>
-            <?php foreach ($results as $row): ?>
-                <tr>
-                   <td><?=$row->firstname?> <?=$row->lastname?></td>
-                   <td><button class="btn btn-sm btn-primary">Add</button></td>
-                </tr>
-            <?php endforeach;?>
-        </table>
-        <?php else: ?>
-            <?php if(count($_POST) >0): ?>
-               <center>
-                 <hr>
-                 <h4>No user found</h4>
-               </center>
-            <?php endif; ?>
-    <?php endif;?>
+<br>
+<div class="card-group justify-content-center">
+    <form method="post">
+        <?php if (isset($results) && $results): ?>
+                <?php foreach ($results as $row): ?>
+                    <?php include(views_path('user'))?>
+                <?php endforeach;?>
+            <?php else: ?>
+                <?php if(count($_POST) >0): ?>
+                <center>
+                    <hr>
+                    <h4>No user found</h4>
+                </center>
+                <?php endif; ?>
+        <?php endif;?>
+    </form>
 </div>

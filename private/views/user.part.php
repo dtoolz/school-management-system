@@ -8,5 +8,8 @@ $image = get_image($row->image, $row->gender);
         <h5 class="card-title"><?=$row->firstname?> <?=$row->lastname?></h5>
         <p class="card-text">Rank: <?=str_replace("_", " ", $row->rank)?></p>
         <a href="<?=ROOT?>/profile/<?=$row->user_id?>" class="btn btn-primary">Details</a>
+        <?php if(isset($_GET['select'])): ?>
+            <button name="selected" value="<?=$row->user_id?>"  class="float-end btn btn-primary">Select</button>
+        <?php endif; ?>
     </div>
 </div>
