@@ -1,5 +1,14 @@
 <form method="post" class="form mx-auto" style="width: 100%;max-width: 400px;"><br>
     <h4>Add Lecturer</h4>
+           <?php if(count($errors)>0): ?>
+                <div class="alert alert-warning alert-dismissible fade show p-1" role="alert">
+                <strong>Errors</strong> 
+                    <?php foreach($errors as $error): ?>
+                    <br> <?=$error?>
+                    <?php endforeach; ?>
+                <button type="button" class="btn btn-primary btn-sm btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            <?php endif; ?>
     <input value="<?=get_var('name')?>" autofocus class="form-control" type="text" name="name" placeholder="name of lecturer">
     <br>
     <a href="<?=ROOT?>/single_class/<?=$row->class_id?>?tab=lecturers">
